@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
     flex: 1;
+    align-items: center;
 `;
 
 export const Title = styled.Text`
@@ -11,6 +12,7 @@ export const Title = styled.Text`
 
 export const List = styled.FlatList`
     flex: 1;
+    width: 90%;
 `;
 
 export const FabButton = styled.TouchableOpacity`

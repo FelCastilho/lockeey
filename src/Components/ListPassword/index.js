@@ -1,19 +1,16 @@
 import React from "react";
-import { Container, Button, TaskText } from "./styles";
-import { Feather } from '@expo/vector-icons';
+import { Container, TaskText, Button } from "./styles";
+import Feather from 'react-native-vector-icons/Feather';
 
 export default function ListPassword({data}) {
 
-    function formatedLetter(word) {
-        return word.charAt(0).toUpperCase() + word.slice(1);
-    }
-
     return (
         <Container>
-            <TaskText>{data.password}</TaskText>
+            <TaskText>{data.passwordItem}</TaskText>
 
-            <Feather name="eye" size={24} color="white" />
-            <Feather name="trash-2" size={24} color="white" />
+            <Button onPress={() => console.log(data)}>
+                <Feather name='trash-2' color='#fff' size={25} />
+            </Button>
         </Container>
     )
 }

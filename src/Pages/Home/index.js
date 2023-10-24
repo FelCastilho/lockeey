@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, Modal } from 'react-native';
-import { Container, Texto, Button, ButtonText, Logo } from './styles';
+import { Container, Texto, Button, ButtonText } from './styles';
 
 import Slider from '@react-native-community/slider';
 import ModalComponent from '../../Components/ModalHome';

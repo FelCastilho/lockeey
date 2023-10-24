@@ -1,11 +1,11 @@
 import React from "react";
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
 import Home from "../Pages/Home";
 import Passwords from "../Pages/Passwords";
-
-import { MaterialIcons, AntDesign  } from '@expo/vector-icons';
 
 export default function Routes() {
 
@@ -31,10 +31,15 @@ export default function Routes() {
                 component={Home}
 
                 options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <MaterialIcons name="lock-outline" size={size} color={color} />
+                    tabBarIcon: ({focused, color, size }) => {
+                        if(focused){
+                            return <Ionicons name="home-sharp" size={size} color={color}/>
+                        }else{
+                            return <Ionicons name="home-outline" size={size} color={color}/>
+                        }
                     }
                 }}
+            
             />
 
             <Tab.Screen
@@ -42,11 +47,14 @@ export default function Routes() {
                 component={Passwords}
 
                 options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <AntDesign name="filetext1" size={size} color={color} />
+                    tabBarIcon: ({ focused, color, size }) => {
+                        if(focused){
+                            return <Ionicons name="document-lock-sharp" size={size} color={color}/>
+                        }else{
+                            return <Ionicons name="document-lock-outline" size={size} color={color}/>
+                        }
                     }
                 }}
-   
             />
 
 

@@ -1,9 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-
-    background-color: #407BFF;
-    width: 80%;
+    background-color: #1D77C3;
     margin-top: 20px;
     padding: 20px;
     flex-direction: row;
@@ -19,6 +17,7 @@ export const TaskText = styled.Text`
 export const Button = styled.TouchableOpacity`
 
 `;
+
 
 export const TimeItem = styled.Text`
     color: #121212;

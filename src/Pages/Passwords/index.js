@@ -1,18 +1,36 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Title, List, FabButton } from './styles';
-import { Feather } from '@expo/vector-icons';
 import { Modal } from 'react-native';
-import ModalPasswords from '../../Components/ModalPasswords';
 import ListPassword from '../../Components/ListPassword';
 
+import Feather from 'react-native-vector-icons/Feather';
+import ModalPasswords from '../../Components/ModalPasswords';
+
+import getRealm from '../../services/realm';
+
 export default function Passwords() {
-  const { password, addItemPassword } = useContext(PasswordContext);
+
   const [modalVisible, setModalVisible] = useState(false);
+  const [password, setPassword] = useState([]);
 
-  return (
+  useEffect(() => {
+
+    loadPasswords = async() => {
+
+      const realm = await getRealm();
+
+      const data = realm.objects('Passwords');
+
+      setPassword(data);
+    }
+
+    loadPasswords();
+
+  }, [])
+
+  return(
+
     <Container>
-
-      <Title>Minhas senhas</Title>
 
       <List
         data={password}
@@ -21,32 +39,11 @@ export default function Passwords() {
       />
 
       <FabButton onPress={() => setModalVisible(true)}>
-        <Feather name="edit-2" size={24} color="white" />
+        <Feather name="edit-2" size={24} color="white"/>
       </FabButton>
 
       <Modal animationType="fade" visible={modalVisible} transparent={true}>
-
-        <Container>
-          <ContainerModal>
-
-            <Input
-              value={input}
-              onChangeText={(item) => setInput(item)}
-              placeholder='Digite sua senha'
-            />
-
-            <Button bg="#141414" onPress={() => handleAddPassword()}>
-              <ButtonText>Salvar</ButtonText>
-            </Button>
-
-            <Button bg="red" onPress={props.close}>
-              <ButtonText>Fechar</ButtonText>
-            </Button>
-
-          </ContainerModal>
-
-        </Container >
-        
+        <ModalPasswords close={() => setModalVisible(false)}/>
       </Modal>
 
     </Container>

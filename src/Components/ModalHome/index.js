@@ -1,14 +1,8 @@
 import React from 'react';
 import { Container, Title, Button, ButtonText, Password, ContainerModal } from './styles';
 import { TouchableWithoutFeedback, } from 'react-native';
-import * as Clipboard from 'expo-clipboard';
-
 
 export default function ModalComponent(props) {
-
-  async function clipboardItem(){
-    await Clipboard.setStringAsync(props.data);
-  }
 
   return (
 
@@ -21,7 +15,7 @@ export default function ModalComponent(props) {
           <Title>Aqui está sua senha!</Title>
           <Password>{props.data}</Password>
 
-          <Button bg="#1D77C3" onPress={clipboardItem}>
+          <Button bg="#1D77C3">
             <ButtonText>Copiar</ButtonText>
           </Button>
 
