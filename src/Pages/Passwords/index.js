@@ -28,6 +28,26 @@ export default function Passwords() {
 
   }, [])
 
+  deleteItem = async (data) => {
+   //Abrindo a conexão
+   const realm = await getRealm();
+
+   const ID = data.id;
+   
+   realm.write(() => {
+    if(realm.objects('Passwords').filtered('id =' + ID).length > 0){
+        realm.delete(
+            realm.objects('Passwords').filtered('id =' + ID)
+        )
+    }
+  })
+
+  const listPasswords = await realm.objects('Passwords').sorted('id', false);
+
+  setPassword(listPasswords);
+  
+  } 
+  
   return(
 
     <Container>
@@ -35,7 +55,7 @@ export default function Passwords() {
       <List
         data={password}
         keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <ListPassword data={item} />}
+        renderItem={({ item }) => <ListPassword data={item} deletePassword={deleteItem}/>}
       />
 
       <FabButton onPress={() => setModalVisible(true)}>

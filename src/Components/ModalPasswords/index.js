@@ -4,13 +4,14 @@ import { TouchableWithoutFeedback, } from 'react-native';
 import getRealm from '../../services/realm';
 
 export default function ModalPasswords(props) {
+
   const [inputPassword, setInputPassword] = useState('');
 
   passwordSave = async() => {
 
     const realm = await getRealm();
 
-    const id = realm.objects('Passwords').sorted('id', true).length > 0 ? realm.objects('Passwords').sorted('id', true)[0].id + 1 : 1
+    const id = realm.objects('Passwords').sorted('id', true).length > 0 ? realm.objects('Passwords').sorted('id', true)[0].id + 1 : 1;
 
     const dadosPassword = {
       id: id,
@@ -31,7 +32,6 @@ export default function ModalPasswords(props) {
     }
 
     try{
-
       const data = {passwordItem: inputPassword}
       await passwordSave(data);
       setInputPassword('');
@@ -42,6 +42,8 @@ export default function ModalPasswords(props) {
   
 
   }
+ 
+  
   return (
 
     <TouchableWithoutFeedback>

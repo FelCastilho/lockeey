@@ -2,7 +2,7 @@ import React from "react";
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Fontisto from 'react-native-vector-icons/Fontisto';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from "../Pages/Home";
 import Passwords from "../Pages/Passwords";
@@ -49,14 +49,14 @@ export default function Routes() {
                 options={{
                     tabBarIcon: ({ focused, color, size }) => {
                         if(focused){
-                            return <Ionicons name="document-lock-sharp" size={size} color={color}/>
+                            return <MaterialCommunityIcons name="lock-open-variant" size={size} color={color}/>
+                            
                         }else{
-                            return <Ionicons name="document-lock-outline" size={size} color={color}/>
+                            return <MaterialCommunityIcons name="lock-outline" size={size} color={color}/>
                         }
                     }
                 }}
             />
-
 
         </Tab.Navigator>
     )
