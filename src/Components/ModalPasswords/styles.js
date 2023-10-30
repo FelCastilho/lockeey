@@ -14,7 +14,7 @@ export const ContainerModal = styled.View`
     border-radius: 20px;
     background-color: #fff;
     width: 90%;
-    height: 80%;
+    height: 300px;
 `;
 
 export const Password = styled.Text`

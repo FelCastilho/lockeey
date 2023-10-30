@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Title, List, FabButton } from './styles';
+import { Container, List, FabButton } from './styles';
 import { Modal } from 'react-native';
 import ListPassword from '../../Components/ListPassword';
 
@@ -47,6 +47,8 @@ export default function Passwords() {
   setPassword(listPasswords);
   
   } 
+
+  
   
   return(
 

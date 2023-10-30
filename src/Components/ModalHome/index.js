@@ -15,12 +15,12 @@ export default function ModalComponent(props) {
           <Title>Aqui está sua senha!</Title>
           <Password>{props.data}</Password>
 
-          <Button bg="#1D77C3">
+          <Button bg="#1D77C3" onPress={props.copy}>
             <ButtonText>Copiar</ButtonText>
           </Button>
 
-          <Button bg="#141414">
-            <ButtonText onPress={props.close}>Gerar novamente</ButtonText>
+          <Button bg="#141414" onPress={props.close}>
+            <ButtonText>Gerar novamente</ButtonText>
           </Button>
         </ContainerModal>
 

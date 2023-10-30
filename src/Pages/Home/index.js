@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Text, Modal } from 'react-native';
 import { Container, Texto, Button, ButtonText } from './styles';
 
+import Clipboard from '@react-native-community/clipboard';
 import Slider from '@react-native-community/slider';
+
 import ModalComponent from '../../Components/ModalHome';
 
 export default function Home() {
@@ -26,6 +28,11 @@ export default function Home() {
     setModalVisible(true)
     setResult(password);
 
+  }
+
+  function copyItem(){
+    Clipboard.setString(result)
+    console.log('Copiado com sucesso!')
   }
 
   return (
@@ -54,7 +61,7 @@ export default function Home() {
       )}
 
       <Modal animationType="slide" visible={modalVisible} transparent={true}>
-        <ModalComponent data={result} close={() => setModalVisible(false)}/>
+        <ModalComponent data={result} close={() => setModalVisible(false)} copy={copyItem}/>
       </Modal>
 
     </Container>
