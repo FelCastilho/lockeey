@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, List, FabButton } from './styles';
-import { Modal } from 'react-native';
+import { Container, List, FabButton, Texto, Header, Title } from './styles';
+import { Modal, Text, ActivityIndicator, View } from 'react-native';
 import ListPassword from '../../Components/ListPassword';
 
 import Feather from 'react-native-vector-icons/Feather';
@@ -11,6 +11,7 @@ import getRealm from '../../services/realm';
 export default function Passwords() {
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState([]);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function Passwords() {
     }
 
     loadPasswords();
+    setLoading(false);
 
   }, [])
 
@@ -48,26 +50,48 @@ export default function Passwords() {
   
   } 
 
+  if(loading){
+
+    return(
+      <View style ={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+          <ActivityIndicator color={'#141414'} size={45}/>
+      </View>
+    )
+  }else{
+    return(
+
+      <Container>
+  
+          {password == 0 ? (
+            <Text></Text>
+          ) : (
+            <Header>
+              <Title>Minhas senhas</Title>
+           </Header>
+          )}
+  
+        {password == 0 ? (
+          <Texto>Ainda não tem nada aqui...</Texto>
+        ) : (
+          <List
+            data={password}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item }) => <ListPassword data={item} deletePassword={deleteItem}/>}
+          />
+        )}
+  
+        
+        <FabButton onPress={() => setModalVisible(true)}>
+          <Feather name="edit-2" size={24} color="white"/>
+        </FabButton>
+  
+        <Modal animationType="fade" visible={modalVisible} transparent={true}>
+          <ModalPasswords close={() => setModalVisible(false)}/>
+        </Modal>
+  
+      </Container>
+    );
+  }
   
   
-  return(
-
-    <Container>
-
-      <List
-        data={password}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <ListPassword data={item} deletePassword={deleteItem}/>}
-      />
-
-      <FabButton onPress={() => setModalVisible(true)}>
-        <Feather name="edit-2" size={24} color="white"/>
-      </FabButton>
-
-      <Modal animationType="fade" visible={modalVisible} transparent={true}>
-        <ModalPasswords close={() => setModalVisible(false)}/>
-      </Modal>
-
-    </Container>
-  );
 }

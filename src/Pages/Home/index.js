@@ -25,14 +25,14 @@ export default function Home() {
       password += charset.charAt(Math.floor(Math.random() * n))
     }
 
-    setModalVisible(true)
+    setModalVisible(true);
     setResult(password);
 
   }
 
   function copyItem(){
     Clipboard.setString(result)
-    console.log('Copiado com sucesso!')
+    alert('Texto copiado!')
   }
 
   return (

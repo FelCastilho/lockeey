@@ -3,11 +3,26 @@ import styled from 'styled-components/native';
 export const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
+    justify-content: center;
+`;
+
+export const Header = styled.View`
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 `;
 
 export const Title = styled.Text`
+    font-size: 25px;
+    color: #000;
+`;
+
+export const Texto = styled.Text`
     font-size: 20px;
-    font-weight: bold;
+    color: #807C7C;
+    
 `;
 
 export const List = styled.FlatList`
