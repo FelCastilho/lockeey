@@ -52,12 +52,10 @@ export default function Home() {
         style={{ width: '70%' }}
       />
 
-      {value > 0 ? (
+      {value > 0  && (
         <Button onPress={() => generatePassword()}>
           <ButtonText>Gerar senha</ButtonText>
         </Button>
-      ) : (
-        <Text></Text>
       )}
 
       <Modal animationType="slide" visible={modalVisible} transparent={true}>

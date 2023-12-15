@@ -1,3 +1,5 @@
+const Realm = require("realm");
+
 export default class PasswordSchema extends Realm.Object{
     static schema = {
         name: 'Passwords',

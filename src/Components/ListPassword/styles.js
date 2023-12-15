@@ -8,6 +8,16 @@ export const Container = styled.TouchableOpacity`
     justify-content: space-between;
 `;
 
+export const ContainerButton = styled.View`
+    flex-direction: row;
+    gap: 20px;
+`;
+
+export const ContainerText = styled.View`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 export const TaskText = styled.Text`
     color: #fff;

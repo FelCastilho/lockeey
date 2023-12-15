@@ -1,11 +1,13 @@
 import React from 'react';
-import { StatusBar, LogBox } from 'react-native';
+import Realm from "realm";
+Realm.flags.THROW_ON_GLOBAL_REALM = true;
+import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes/routes';
 
 
 export default function App() {
-  LogBox.ignoreAllLogs()
+
   return (
 
     <NavigationContainer>
@@ -13,4 +15,5 @@ export default function App() {
       <Routes/>
     </NavigationContainer>
   );
+  
 }
