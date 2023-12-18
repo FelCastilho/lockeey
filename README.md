@@ -16,4 +16,4 @@ A aba **Home** conta com um picker, onde o usuário pode criar códigos de 4 at�
 ### 👤  Autores:
 
 * **Felipe Castilho** - *Desenvolvimento* - [Felipe Castilho](https://github.com/FelCastilho)
-* **Alexandre Oliveira** - *Desenvolvimento* - [@alexoliveira_m](https://www.instagram.com/alexoliveira_m/)
+* **Alexandre Oliveira** - *Designer* - [@alexoliveira_m](https://www.instagram.com/alexoliveira_m/)
